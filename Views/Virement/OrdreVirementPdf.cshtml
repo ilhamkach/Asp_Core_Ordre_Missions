@@ -1,0 +1,227 @@
+﻿@using Microsoft.AspNetCore.Http
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .gpdf {
+        text-align: center;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .flex-sb {
+        justify-content: space-between;
+    }
+
+    .flex-sa {
+        justify-content: space-around;
+    }
+
+    .with-50 {
+        width: 50%;
+    }
+
+    .arabicAlign {
+        text-align: right;
+    }
+
+    .textCenter {
+        text-align: center;
+    }
+
+    .table0 {
+        width: 100%;
+    }
+
+    .table1 {
+        width: 96%;
+    }
+
+    .table2 {
+        text-align: left;
+        margin-top: 3rem;
+        border-collapse: collapse;
+    }
+
+    .table3 {
+        width: 100%;
+    }
+
+    tr:not(:last-child) td {
+        padding: 0rem .5rem;
+    }
+
+    tr:last-child th {
+        padding: 1rem 1rem;
+        text-align: center;
+    }
+
+    .facture > div {
+        margin-top: .8rem;
+    }
+
+    .pd-2t-rem {
+        padding-top: 2rem;
+    }
+
+    .ar {
+        text-align: right;
+    }
+
+    .div1 {
+        height: 90px;
+    }
+</style>
+
+
+
+<div class="facture">
+
+    <!-- This is header -->
+    <div class="div1">
+        <h3 style="float:left;">Tresorie Provinciale <br /> <spam style="margin-left:50px;">De Safi </spam></h3>
+        <h3 style="float:right; margin-right:50px;">Safi le:  @ViewData["date"]  </h3>
+    </div>
+
+
+    <!-- this is the title -->
+    <div class="textCenter"><h3><br>ORDRE DE VIREMENT N° @ViewData["numero"]</h3></div>
+
+    <!-- this is body  -->
+    <div class="flex">
+
+        <table class="table1">
+            <tr>
+                <td>
+                    <p><br>Le Directeur de l'Ecole Nationale des sciences Appliquees de safi<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>......من مدير المدرسة الوطنية باسفي</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>A monsieur le Tresorie regional de safi<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>الى الخازن الجهوي باسفي <br><p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>J'ai l'hounneur de vous demander de bien vouloir <br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>يشرفني أن ألتمس من جنابكم أن تقوموا بالتحولات المشار </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>faire procéder par le débit de mon compte n°<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>اليها أسفله وذلك بأدائها من الحساب المفتوح في مؤسستكم تحت </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>ouvert dans votre établissement<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>رقم. 49531 </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>dûment signé par vos soins.<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>وأ رجو أن تخبروني بهده العملية وذلك بارجاع. </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>Veuillez agréer, Monsieur le directeur, l'expression.<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>النسخة المحقة طي بعد توقيعها </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>de mes salutations distingués.<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>و اتقبلوا فائق احتراماتي </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><br>.<br></p>
+                </td>
+
+                <td>
+                    <p class="ar"><br>و السلام</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="table2">
+        <table border="1">
+            <tr>
+                <th>الأمر بالأداء رقم </br>  </br> N° DES O.P</th>
+                <th>سبب التسويه</br> </br>Motif DE REGLEMENT</th>
+                <th>إسم المستفيد</br> </br>NOM DU BENEFICIAIRE</th>
+                <th>البنك</br> </br> BANQUE</th>
+                <th>رقم الحساب</br> </br>N° DE COMPTE</th>
+                <th>المبلغ</br> </br> MONTANT</th>
+            </tr>
+
+            <tr>
+                <td>@ViewData["numop"]</td>
+                <td>Indeterminite de deplacement et kilometrrique</td>
+                <td>@Context.Session.GetString("pers")</td>
+                <td>@ViewData["banque"]</td>
+                <td>@ViewData["compte"]</td>
+                <td>@Context.Session.GetInt32("totale_dep")<br><br>@Context.Session.GetInt32("totale_kilo")</td>
+            </tr>
+            <tr>
+                <th colspan="5">TOTAL</th>
+                <th>@Context.Session.GetInt32("total_final")</th>
+            </tr>
+        </table>
+    </div>
+    <!-- end of table / debut de footer -->
+    <div class="footer">
+        <div class="arabicAlign"><br>: لب لبل حر هوا الانر في ل المبلغ</div>
+        <div><p>Ordre de Virment arrete a la somme : deux mille </p></div>
+        <div><p class="textCenter">Signature</p></div>
+        <table class="table3">
+            <tr>
+                <td><h3 style=" position: relative; left:80px;">Le Directeur</h3></td>
+                <td><h3 style="text-align:right; position: relative; right:80px;">Le Fonde de Pouvoirs</h3></td>
+            </tr>
+        </table>
+    </div>
+</div>
+

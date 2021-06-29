@@ -1,0 +1,501 @@
+﻿@{
+    Layout = "~/Views/Shared/MenuLayout.cshtml";
+}
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/Common.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+
+    <title>Ordre Mission</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="../Scripts/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../Content/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="../Scripts/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!--link for form template-->
+    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../Content/assets/images/favicon.png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../Content/assets/libs/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../Content/assets/libs/jquery-minicolors/jquery.minicolors.css">
+    <link rel="stylesheet" type="text/css"
+          href="../Content/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="../Content/assets/libs/quill/dist/quill.snow.css">
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <li class="nav-item dropdown no-arrow mx-1">
+
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                             alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">
+                                            Hi there! I am wondering if you can help me with a
+                                            problem I've been having.
+                                        </div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                             alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">
+                                            I have the photos that you ordered last month, how
+                                            would you like them sent to you?
+                                        </div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                             alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">
+                                            Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!
+                                        </div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                             alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">
+                                            Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...
+                                        </div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@Context.Session.GetString("nomeconomique")</span>
+                                <img class="img-profile rounded-circle"
+                                     src="../Content/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="userDropdown">
+
+                                <a class="dropdown-item" href="~/Parametrage/Index">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Paramétrage
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Se deconnecter
+                                </a>
+
+                            </div>
+                        </li>
+
+                        </U>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Personnels
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_utilisateur</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-chart-pie fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Ordres missions non approuvés
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_mission_non_approuve </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-chart-pie fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                ordres de missions approuvés
+                                            </div>
+                                            <div class="col mr-2">
+
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_mission_approuve</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-chart-pie fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Ordre de virement
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_virement</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-chart-pie fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    
+                    <div class="row" style="margin-top:20px">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">statistique des missions pour chaque année</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <img src="@Url.Action("Index")" />
+                                <canvas id="BarChart" width="400" height="100"> </canvas>
+                <script>
+                    var c = document.getElementById("BarChart");
+                    var ctx = c.getContext("2d");
+                    var tData = $.getValues("/Home/BarChartDataEF");
+                    var myBarChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: tData
+                    });
+                </script>
+                                <canvas class="my-4 h-25" id="bar"></canvas>
+
+
+                            </div>
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/Chart.min.js"></script>
+                        <script type="text/javascript">
+                            var barchart = document.getElementById('bar').getContext('2d');
+                            var myBarChart = new Chart(barchart, {
+                                type: 'bar',
+                                data: {
+                                    labels: ['001', '002', '003'],
+                                    datasets: [{
+                                        label: 'Bar Chart',
+                                        data: [100, 200, 300],
+                                        backgroundcolor: 'rgba(6,128,250)'
+                                    }]
+
+
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+
+                                            }
+                                        }]
+                                    }
+                                }
+                            })*@
+                        @*</script>*@
+
+
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        <div class="col-lg-12 mb-4">
+
+                            <!-- Project Card Example -->
+                            <div>
+                                <!-- Approach -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Description</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            Le service économique s’occupe de tout ce qui concerne l’aspect financier que traite l’établissement avec les différentes partenaires, que se soit interne (corps administratif, corps professoral et étudiants) ou tiers (prestataires de services, L’Etat, etc…).
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Prêt à partir?
+                        </h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                        <a class="btn btn-primary" href="/Home/login">Déconnexion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
+        <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="../Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="../Scripts/sb-admin-2.min.js"></script>
+
+
+
+        <!-- Scripts for form template-->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+        <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+        <!--Wave Effects -->
+        <script src="../../dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="../../dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="../../dist/js/custom.min.js"></script>
+        <!-- This Page JS -->
+        <script src="../Content/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+        <script src="../Content/dist/js/pages/mask/mask.init.js"></script>
+        <script src="../Content/assets/libs/select2/dist/js/select2.full.min.js"></script>
+        <script src="../Content/assets/libs/select2/dist/js/select2.min.js"></script>
+        <script src="../Content/assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
+        <script src="../Content/assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
+        <script src="../Content/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
+        <script src="../Content/assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
+        <script src="../Content/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="../Content/assets/libs/quill/dist/quill.min.js"></script>
+        <script>
+            //***********************************//
+            // For select 2
+            //***********************************//
+            $(".select2").select2();
+
+            /*colorpicker*/
+            $('.demo').each(function () {
+                //
+                // Dear reader, it's actually very easy to initialize MiniColors. For example:
+                //
+                //  $(selector).minicolors();
+                //
+                // The way I've done it below is just for the demo, so don't get confused
+                // by it. Also, data- attributes aren't supported at this time...they're
+                // only used for this demo.
+                //
+                $(this).minicolors({
+                    control: $(this).attr('data-control') || 'hue',
+                    position: $(this).attr('data-position') || 'bottom left',
+
+                    change: function (value, opacity) {
+                        if (!value) return;
+                        if (opacity) value += ', ' + opacity;
+                        if (typeof console === 'object') {
+                            console.log(value);
+                        }
+                    },
+                    theme: 'bootstrap'
+                });
+
+            });
+            /*datwpicker*/
+            jQuery('.mydatepicker').datepicker();
+            jQuery('#datepicker-autoclose').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            });
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+
+        </script>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
+        <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="../Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="../Scripts/sb-admin-2.min.js"></script>
+
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
+        <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="../Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="../Scripts/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="../Scripts/vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="../Scripts/demo/chart-area-demo.js"></script>
+        <script src="../Scripts/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>

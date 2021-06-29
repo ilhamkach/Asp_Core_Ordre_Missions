@@ -1,0 +1,135 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pages</title>
+    <style>
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            background-color: #696969;
+            color: #fff;
+        }
+
+        p {
+            padding: 5px;
+            width: 100%;
+        }
+
+        table {
+            border: 1px solid black;
+        }
+
+        .p1 {
+            border-width: 2px;
+            border-style: solid;
+        }
+
+        table {
+            border-collapse: collapse
+        }
+
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 0px;
+        }
+
+        .a {
+            border: 1px solid black;
+            text-align: center;
+            padding: 0px
+        }
+
+        .b {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="a"><p>UNIVERSITE CADI AYYAD</p><p>ECOLE NATIONALE DES SCIENCES APPLIQUEES</p><p>B.P, route Sidi Bouzid </p><br><p>Safi</p></td>
+            <td class="a"><h2>ORDRE DE PAIEMENT </h2><br /><p>@ViewBag.numop/2021</p><p>Budget de Fonctionnement</p> </td>
+            <td class="a">
+
+                <p>Année d'origine de la créance : 2021<br> COMPTE Nº 49531<br> OUVERT A LA TRESORERIE<br>REGIONALE DE SAFI</p>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <p class="p1">
+        Bénéficière : @ViewData["nompers"]<br>
+        Domiciliation : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Safi
+    </p>
+
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>PIECES JUSTIFICATIVES</th>
+                <th>Chapitre</th>
+                <th>ART</th>
+                <th>&</th>
+                <th>Lig</th>
+                <th>Crédit Ouvert</th>
+                <th>NATURE DES OPERATIONS</th>
+                <th>Montant</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="4">
+                    Etat des indimnités de déplacement <br><br><br>
+                    Ordre de mission 208/2021<br><br><br><br><br><br><br><br><br>
+                </td>
+                <td>MDD<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                <td>@ViewData["art"]<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                <td>@ViewData["num1"]<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                <td>@ViewData["num2"]<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                <td rowspan="4">Crédit en cours<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                <td rowspan="4">
+                    Intitulé de l'article : Pilotage de Gouvernance <br><br> Intitulé de &: Rayonnement et ouverture<br><hr> Intitulé de la Lig : Indémnités de déplacement à l'interieur du Royaume
+                    <br><br><br><br><br><br><br><br><br><p class="b">Certification de liquidation par le service concerné</p><br>
+                </td>
+                <td>@ViewData["total"]<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+
+
+        </tbody>
+
+    </table>
+    <table>
+        <tr>
+            <td colspan="8">arrêté le présent Ordre de Paiement à la somme de : Quatre cent quatre vignt dirhams </td>
+            <td>@ViewData["total"]</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table>
+
+        <thead>
+            <tr>
+                <th>LES SOUS ORDONNATEUR</th>
+                <th>LE FONDE DE POUVOIRS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><br>Transmis au fondé de pouvoirs le : <br> <br><br>Signature du sous Ordonnateur : <br><br><br><br><br><br><br><br><br><br><br></td>
+                <td><br>Mode de réglement :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OV nº @ViewBag.numv &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     BP         <br>  <br><br>Date de réglement : <br> <br><br> Visa du fondé de pouvoirs : <br><br><br><br><br><br><br><br><br><br><br></td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="margin-left:30px;float:left;">Dossier établis par: @ViewBag.faitpart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Safi le : @ViewData["date"]</p>
+
+
+
+</body>
+</html>
+
